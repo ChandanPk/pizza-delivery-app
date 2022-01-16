@@ -32,8 +32,8 @@ const Slider = () => {
 
                 <div className={styles.wrapper} style={{transform: `translate(${(-100 * position)}vw`}}>
                     {pizzas.map((pizza, i) => {
-                        return (<div className={styles.imgWrapper}>
-                            <Image src={pizza} key={i} layout='fill' objectFit='contain' />
+                        return (<div className={styles.imgWrapper} key={i}>
+                            <Image src={pizza} layout='fill' objectFit='contain' />
                         </div>)
                     })}
                 </div>
