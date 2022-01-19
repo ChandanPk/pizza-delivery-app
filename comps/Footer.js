@@ -11,7 +11,7 @@ const Footer = () => {
             <div className={styles.item}>
                 <div className={styles.card}>
                     <h2 className={styles.moto}>
-                        The best chandan's peedzas whatsoever.
+                        The best growminose peedzas whatsoever.
                     </h2>
                 </div>
 
