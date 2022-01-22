@@ -2,8 +2,9 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Slider from '../comps/Slider' 
 import PizzaList from '../comps/PizzaList'
+import axios from 'axios'
 
-export default function Home() {
+export default function Home({ pizzaList }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -12,8 +13,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Slider />
-      <PizzaList />
+      <PizzaList pizzaList={ pizzaList } />
       homepage
     </div>
   )
+}
+
+export const getServerSideProps = async() => {
+  const res = await axios.get('http://localhost:3000/api/product')
+  return {
+    props: {
+      pizzaList: res.data
+    }
+  }
 }
