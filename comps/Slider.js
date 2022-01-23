@@ -7,9 +7,9 @@ const Slider = () => {
     const [position, setPosition] = useState(0);
 
     const pizzas = [
-        '/imgs/pizza8.png',
         '/imgs/pizza9.png',
         '/imgs/pizza2.png',
+        '/imgs/pizza8.png',
     ]
 
     let pizzaLength = pizzas.length - 1;
