@@ -1,42 +1,56 @@
 import Image from 'next/image';
 import styles from '../styles/Cart.module.css'
+import { useDispatch, useSelector } from 'react-redux';
 
 const Cart = () => {
+
+    const cart = useSelector(state => state.cart);
+    const dispatch = useDispatch();
+
+    console.log(cart.products)
+
     return (
         <div className={styles.container}>
             <div className={styles.left}>
                 <table className={styles.table}>
-                    <tr className={styles.tr}>
-                        <th>Product</th>
-                        <th>Name</th>
-                        <th>Extras</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                    </tr>
-                    <tr>
-                        <td className={styles.td}>
-                            <div className={styles.imgContainer}>
-                                <Image src='/img/pizza.png' layout='fill' objectFit='cover' />
-                            </div>
-                        </td>
-                        <td className={styles.td}>
-                            <span className={styles.name}>Lasaranga</span>
-                        </td>
-                        <td className={styles.td}>
-                            <span className={styles.extras}>Cheese Brust, Halapino</span>
-                        </td>
-                        <td className={styles.td}>
-                            <span className={styles.prize}>$19</span>
-                        </td>
-                        <td className={styles.td}  >
-                            <span className={styles.quantity}>2</span>
-                        </td>
-                        <td className={styles.td}>
-                            <span className={styles.total}>$26</span>
-                        </td>
-                    </tr>
-                    
+                    <tbody>
+                        <tr className={styles.tr}>
+                            <th>Product</th>
+                            <th>Name</th>
+                            <th>Extras</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                        {cart.products.map((product, i) => {
+                            return (<tr key={i}>
+                                <td className={styles.td}>
+                                    <div className={styles.imgContainer}>
+                                        <Image src={product.img} layout='fill' objectFit='cover' />
+                                    </div>
+                                </td>
+                                <td className={styles.td}>
+                                    <span className={styles.name}>{product.title}</span>
+                                </td>
+                                <td className={styles.td}>
+                                    {
+                                        product.extras.map(extra => {
+                                            return (<span key={extra._id} className={styles.extras}>{extra.text}</span>)
+                                        })
+                                    }
+                                </td>
+                                <td className={styles.td}>
+                                    <span className={styles.prize}>${product.price}</span>
+                                </td>
+                                <td className={styles.td}  >
+                                    <span className={styles.quantity}>{product.quantity}</span>
+                                </td>
+                                <td className={styles.td}>
+                                    <span className={styles.total}>${product.price * product.quantity}</span>
+                                </td>
+                            </tr>)
+                        })}
+                    </tbody>
                 </table>
             </div>
 

@@ -75,6 +75,10 @@
     position: relative;
 }
 
+.cart:hover {
+    cursor: pointer;
+}
+
 .count {
     position: absolute;
     top: -26px;
@@ -89,5 +93,6 @@
     justify-content: center;
     color: #d1411e;
     font-weight: bold;
+    font-size: 14px;
 }
 

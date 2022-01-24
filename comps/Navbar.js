@@ -1,7 +1,12 @@
 import Image from 'next/image';
 import styles from '../styles/Navbar.module.css'
+import { useSelector } from 'react-redux';
+import Link from 'next/link';
 
 const Navbar = () => {
+
+    const { quantity } = useSelector(state => state.cart);
+
     return (
         <nav className={styles.container}>
 
@@ -17,7 +22,7 @@ const Navbar = () => {
 
             <div className={styles.item}>
                 <ul className={styles.list}>
-                    <li className={styles.listItem}>Homepage</li>
+                    <Link href='/' passHref><li className={styles.listItem}>Homepage</li></Link>
                     <li className={styles.listItem}>Menu</li>
                     <li className={styles.listItem}>Products</li>
                     {/* <Image src='/img/logo.png' alt='' width='160px' height='69px'></Image> */}
@@ -29,10 +34,16 @@ const Navbar = () => {
             </div>
 
             <div className={styles.item}>
-                <div className={styles.cart}>
-                    <p className={styles.count}>0</p>
-                    <Image src='/img/cart.png' width='35' height='30' />
-                </div>
+                {quantity > 0 ? (<Link href='/cart' passHref>
+                    <div className={styles.cart}>
+                        <p className={styles.count}>{quantity}</p>
+                        <Image src='/img/cart.png' width='35' height='30' />
+                    </div>
+                </Link>): (<div className={styles.cart}>
+                        <p className={styles.count}>0</p>
+                        <Image src='/img/cart.png' width='35' height='30' />
+                    </div>)}
+                
 
             </div>
         </nav>
