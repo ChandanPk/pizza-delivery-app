@@ -26,21 +26,21 @@ const Slider = () => {
 
         return (
             <div className={styles.container}>
-                <div className={styles.imgContainer} style={{ left: 0 }}>
-                    <Image src='/img/arrowl.png' layout='fill' objectFit='contain' onClick={() => handleArrow("left")} />
-                </div>
+                {/* <div className={styles.imgContainer} style={{ left: 0 }}>
+                    <Image priority='blur' alt="lassan" src='/img/arrowl.png' layout='fill' objectFit='contain' onClick={() => handleArrow("left")} />
+                </div> */}
 
                 <div className={styles.wrapper} style={{transform: `translate(${(-100 * position)}vw`}}>
                     {pizzas.map((pizza, i) => {
                         return (<div className={styles.imgWrapper} key={i}>
-                            <Image src={pizza} layout='fill' objectFit='contain' />
+                            <Image priority='blur' alt="lassan" src={pizza} layout='fill' objectFit='contain' />
                         </div>)
                     })}
                 </div>
 
-                <div className={styles.imgContainer} style={{ right: 0 }}>
-                    <Image src='/img/arrowr.png' layout='fill' objectFit='contain' onClick={() => handleArrow("right")} />
-                </div>
+                {/* <div className={styles.imgContainer} style={{ right: 0 }}>
+                    <Image priority='blur' alt="lassan" src='/img/arrowr.png' layout='fill' objectFit='contain' onClick={() => handleArrow("right")} />
+                </div> */}
             </div>
         );
     }

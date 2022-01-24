@@ -37,7 +37,7 @@ const Cart = () => {
                                 <td className={styles.td}>
                                     {
                                         product.extras.map(extra => {
-                                            return (<span key={extra._id} className={styles.extras}>{extra.text}</span>)
+                                            return (<span key={extra._id} className={styles.extras}>{extra.text} </span>)
                                         })
                                     }
                                 </td>
