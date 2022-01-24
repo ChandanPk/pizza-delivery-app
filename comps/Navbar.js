@@ -33,16 +33,13 @@ const Navbar = () => {
             </div>
 
             <div className={styles.item}>
-                {quantity > 0 ? (<Link href='/cart' passHref>
+                <Link href='/cart' passHref>
                     <div className={styles.cart}>
                         <p className={styles.count}>{quantity}</p>
                         <Image src='/img/cart.png' width='35' height='30' />
                     </div>
-                </Link>): (<div className={styles.cart}>
-                        <p className={styles.count}>0</p>
-                        <Image src='/img/cart.png' width='35' height='30' />
-                    </div>)}
-                
+                </Link>
+
 
             </div>
         </nav>

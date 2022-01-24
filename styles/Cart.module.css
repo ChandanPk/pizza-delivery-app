@@ -65,6 +65,13 @@
     vertical-align: middle;
 }
 
+.continue {
+    color: blue;
+    text-decoration: underline;
+}
 
+.continue:hover {
+    cursor: pointer;
+}
 
 

@@ -1,16 +1,18 @@
 import Image from 'next/image';
 import styles from '../styles/Cart.module.css'
 import { useDispatch, useSelector } from 'react-redux';
+import Link from 'next/link';
 
 const Cart = () => {
 
     const cart = useSelector(state => state.cart);
     const dispatch = useDispatch();
 
-    console.log(cart.products)
+    // console.log(cart.products)
 
     return (
         <div className={styles.container}>
+            {cart.quantity > 0 ? <>
             <div className={styles.left}>
                 <table className={styles.table}>
                     <tbody>
@@ -68,7 +70,8 @@ const Cart = () => {
                     </div>
                     <button className={styles.btn}>CHECKOUT NOW!</button>
                 </div>
-            </div>
+            </div></>
+            : <h3>Empty cart! <Link href='/' ><span className={styles.continue}>continue</span></Link> to homepage</h3> }
         </div>
     );
 }
