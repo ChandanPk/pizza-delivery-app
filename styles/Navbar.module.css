@@ -60,6 +60,10 @@
     letter-spacing: 1px;
 }
 
+.listItem:first-child, .logo:hover {
+    cursor: pointer;
+}
+
 .item:last-child {
     justify-content: flex-end;
 }

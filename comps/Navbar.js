@@ -25,8 +25,7 @@ const Navbar = () => {
                     <Link href='/' passHref><li className={styles.listItem}>Homepage</li></Link>
                     <li className={styles.listItem}>Menu</li>
                     <li className={styles.listItem}>Products</li>
-                    {/* <Image src='/img/logo.png' alt='' width='160px' height='69px'></Image> */}
-                    <li className={styles.logo}>Growminose</li>
+                    <Link href='/' passHref><li className={styles.logo}>Growminose</li></Link>
                     <li className={styles.listItem}>Blogs</li>
                     <li className={styles.listItem}>Events</li>
                     <li className={styles.listItem}>Contact</li>
