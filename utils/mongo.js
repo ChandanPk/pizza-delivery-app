@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const MONGODB_URI = process.env.MONGODB_URI
+const MONGODB_URI = "mongodb+srv://admin:Killmenow@jwt-auth.xlcbf.mongodb.net/growminose?retryWrites=true&w=majority"
 
 if (!MONGODB_URI) {
   throw new Error(

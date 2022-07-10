@@ -25,7 +25,7 @@ export default async function handler(req, res){
             res.status(402).json(err.message)
         }
 
-        // console.log('Get request was made')
+        console.log('Get request was made')
 
     }
 }
