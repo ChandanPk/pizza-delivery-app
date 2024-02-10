@@ -4,7 +4,8 @@ import Slider from "../comps/Slider";
 import PizzaList from "../comps/PizzaList";
 import axios from "axios";
 
-export default function Home({ pizzas }) {
+export default function Home({ pizzas, ApiResponse }) {
+  console.log(ApiResponse, "==++==++==");
   return (
     <div className={styles.container}>
       <Head>
@@ -25,6 +26,7 @@ export const getServerSideProps = async () => {
   return {
     props: {
       pizzas: res.data,
+      ApiResponse: res,
     },
   };
 };
