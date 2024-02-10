@@ -14,15 +14,13 @@ export default async function handler(req, res) {
     console.log("Post request was made");
   }
 
-  console.log("hittttttttttttttttttttttt");
-
   if (method === "GET") {
     try {
       const data = await Product.findById(id);
       res.status(200).json(data);
     } catch (err) {
       console.log(err.message);
-      // res.status(500).json(err)
+      res.status(401).json(err);
     }
   }
 }

@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+mongoose.set("strictQuery", true);
+
 const MONGODB_URI =
   "mongodb+srv://admin:Killmenow111@jwt-auth.xlcbf.mongodb.net/growminose?retryWrites=true&w=majority";
 if (!MONGODB_URI) {

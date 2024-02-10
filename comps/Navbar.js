@@ -10,7 +10,12 @@ const Navbar = () => {
     <nav className={styles.container}>
       <div className={styles.item}>
         <div className={styles.callBtn}>
-          <Image src="/img/telephone.png" width="30" height="30"></Image>
+          <Image
+            alt="img"
+            src="/img/telephone.png"
+            width="30"
+            height="30"
+          ></Image>
         </div>
         <div className={styles.texts}>
           <div className={styles.text}>ORDER NOW!</div>
@@ -38,7 +43,7 @@ const Navbar = () => {
         <Link href="/cart" passHref>
           <div className={styles.cart}>
             <p className={styles.count}>{quantity}</p>
-            <Image src="/img/cart.png" width="35" height="30" />
+            <Image alt="img" src="/img/cart.png" width="35" height="30" />
           </div>
         </Link>
       </div>

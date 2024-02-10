@@ -4,8 +4,7 @@ import Slider from "../comps/Slider";
 import PizzaList from "../comps/PizzaList";
 import axios from "axios";
 
-export default function Home({ pizzas, ApiResponse }) {
-  console.log(ApiResponse, "==++==++==");
+export default function Home({ pizzas }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -20,13 +19,15 @@ export default function Home({ pizzas, ApiResponse }) {
   );
 }
 
-export const getServerSideProps = async () => {
-  const res = await axios.get("http://localhost:3000/api/product");
-  console.log(res, "===+++===");
+export const getServerSideProps = async ({ req }) => {
+  const protocol = req.headers["x-forwarded-proto"] || "http";
+  const domain = req.headers.host;
+  const fullUrl = `${protocol}://${domain}`;
+  const res = await axios.get(`${fullUrl}/api/product`);
+
   return {
     props: {
       pizzas: res.data,
-      ApiResponse: res,
     },
   };
 };
