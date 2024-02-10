@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI =
+  "mongodb+srv://admin:Killmenow111@jwt-auth.xlcbf.mongodb.net/growminose?retryWrites=true&w=majority";
 if (!MONGODB_URI) {
   throw new Error(
     "Please define the MONGODB_URI environment variable inside .env.local"
@@ -22,15 +23,19 @@ async function dbConnect() {
   if (cached.conn) {
     return cached.conn;
   }
-
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
-      return mongoose;
-    });
+    cached.promise = mongoose
+      .connect(MONGODB_URI, opts)
+      .then((mongoose) => {
+        return mongoose;
+      })
+      .catch(() => {
+        console.log("errorwa inestablishing connection");
+      });
   }
   cached.conn = await cached.promise;
   return cached.conn;
